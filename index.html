@@ -11,30 +11,51 @@
       #document-paper, #document-paper * { visibility: visible; }
       #document-paper { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 20px; box-shadow: none; }
     }
+    
+    /* Document Styling Rules (SLA Compliance) */
     .a4-page {
       width: 210mm;
       min-height: 297mm;
       background: white;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
       margin: 0 auto;
-      font-family: Arial, Helvetica, sans-serif;
+      padding: 2.5cm;
+    }
+    
+    /* Header SLA: Times New Roman, 12pt, Center, Bold, Hex #00007e */
+    .sla-header-text {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 12pt;
+      font-weight: bold;
+      color: #00007e;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* Body SLA: Arial, 12pt, Justified */
+    .sla-body-text {
+      font-family: Arial, sans-serif;
+      font-size: 12pt;
+      text-align: justify;
+      line-height: 1.5;
+      color: #000000;
     }
   </style>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800 antialiased">
+<body class="bg-slate-100 font-sans text-gray-800 antialiased">
 
   <!-- Header / Top Navbar -->
   <header class="bg-blue-900 text-white px-6 py-3 flex justify-between items-center shadow-md">
     <div class="flex items-center space-x-3">
       <i class="fa-solid fa-file-contract text-2xl text-yellow-400"></i>
       <div>
-        <h1 class="font-bold text-lg leading-tight">Sistem Otomasi Tata Naskah Dinas</h1>
+        <h1 class="font-bold text-lg leading-tight">Otomasi Tata Naskah Dinas (SLA Compliant)</h1>
         <p class="text-xs text-blue-200">Pusat Pengelolaan Komplek Gelora Bung Karno</p>
       </div>
     </div>
-    <div class="flex items-center space-x-3 text-sm">
-      <span class="bg-blue-800 px-3 py-1 rounded-full text-xs font-semibold"><i class="fa-solid fa-circle text-green-400 mr-1 text-[10px]"></i> Modul Memorandum</span>
-    </div>
+    <span class="bg-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+      <i class="fa-solid fa-circle text-green-400 mr-1 text-[10px]"></i> Modul Memorandum
+    </span>
   </header>
 
   <main class="container mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -50,18 +71,37 @@
         <div class="space-y-3 text-sm">
           <div>
             <label class="block text-xs font-medium text-gray-700 mb-1">Atas Nama Surat (Dari) <span class="text-red-500">*</span></label>
-            <select id="inputAtasNama" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 text-xs">
-              <option value="Direktur Utama">Direktur Utama</option>
-              <option value="Direktur Pembangunan dan Pengembangan Usaha">Direktur Pembangunan dan Pengembangan Usaha</option>
-              <option value="Direktur Keuangan" selected>Direktur Keuangan</option>
-              <option value="Direktur Umum">Direktur Umum</option>
-              <option value="Kepala Satuan Pemeriksaan Intern">Kepala Satuan Pemeriksaan Intern</option>
-              <option value="Kepala Divisi Humas, Hukum dan Administrasi">Kepala Divisi Humas, Hukum dan Administrasi</option>
+            <select id="inputAtasNama" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">
+              <option value="Direktur Utama">a. Direktur Utama</option>
+              <option value="Direktur Pembangunan dan Pengembangan Usaha">b. Direktur Pembangunan dan Pengembangan Usaha</option>
+              <option value="Direktur Keuangan" selected>c. Direktur Keuangan</option>
+              <option value="Direktur Umum">d. Direktur Umum</option>
+              <option value="Kepala Satuan Pemeriksaan Intern">e. Kepala Satuan Pemeriksaan Intern</option>
+              <option value="Kepala Unit Stadion Utama">f. Kepala Unit Stadion Utama</option>
+              <option value="Kepala Unit Basket dan Lapangan">g. Kepala Unit Basket dan Lapangan</option>
+              <option value="Kepala Unit Istora">h. Kepala Unit Istora</option>
+              <option value="Kepala Unit Indonesia Arena">i. Kepala Unit Indonesia Arena</option>
+              <option value="Kepala Unit PTHK">j. Kepala Unit PTHK</option>
+              <option value="Kepala Unit Stadion Renang">k. Kepala Unit Stadion Renang</option>
+              <option value="Kepala Unit Stadion Tenis">l. Kepala Unit Stadion Tenis</option>
+              <option value="Kepala Unit Kawasan">m. Kepala Unit Kawasan</option>
+              <option value="Kepala Unit KP&MOS">n. Kepala Unit KP&MOS</option>
+              <option value="Kepala Unit GBK Arena">o. Kepala Unit GBK Arena</option>
+              <option value="Kepala Unit Gedung Konvensi">p. Kepala Unit Gedung Konvensi</option>
+              <option value="Kepala Divisi Pengembangan Usaha">q. Kepala Divisi Pengembangan Usaha</option>
+              <option value="Kepala Divisi Pemasaran dan Penjualan">r. Kepala Divisi Pemasaran dan Penjualan</option>
+              <option value="Kepala Divisi Pembangunan dan Pemeliharaan">s. Kepala Divisi Pembangunan dan Pemeliharaan</option>
+              <option value="Kepala Divisi Anggaran dan Perencanaan">t. Kepala Divisi Anggaran dan Perencanaan</option>
+              <option value="Kepala Divisi Akuntansi">u. Kepala Divisi Akuntansi</option>
+              <option value="Kepala Divisi Perbendaharaan">v. Kepala Divisi Perbendaharaan</option>
+              <option value="Kepala Divisi Sumber Daya Manusia dan Kerumahtanggaan">w. Kepala Divisi SDM dan Kerumahtanggaan</option>
+              <option value="Kepala Divisi Humas, Hukum dan Administrasi">x. Kepala Divisi Humas, Hukum dan Administrasi</option>
+              <option value="Ketua Tim Pembelian">y. Ketua Tim Pembelian</option>
             </select>
           </div>
           <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1">Nama Pengirim / Penandatangan <span class="text-red-500">*</span></label>
-            <input type="text" id="inputNamaPengirim" value="Hendry Arisandi" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">
+            <label class="block text-xs font-medium text-gray-700 mb-1">Nama Pengirim / PIC <span class="text-red-500">*</span></label>
+            <input type="text" id="inputNamaPengirim" value="Hendry Arisandi" class="w-full p-2 border border-gray-300 rounded text-xs">
           </div>
         </div>
       </div>
@@ -74,19 +114,33 @@
         <div class="space-y-3 text-sm">
           <div>
             <label class="block text-xs font-medium text-gray-700 mb-1">Nama / Jabatan Penerima <span class="text-red-500">*</span></label>
-            <input type="text" id="inputPenerima" value="Hadi Sulistia (Direktur Umum PPK Gelora Bung Karno)" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">
+            <input type="text" id="inputPenerima" value="Hadi Sulistia (Direktur Umum PPKGBK)" class="w-full p-2 border border-gray-300 rounded text-xs">
           </div>
         </div>
       </div>
 
-      <!-- 3. Informasi Kearsipan & Kode Klasifikasi -->
+      <!-- 3. Klasifikasi & Penomoran -->
       <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
         <h2 class="text-xs font-bold text-blue-900 uppercase tracking-wider mb-3 border-b pb-2 flex items-center">
-          <i class="fa-solid fa-folder-tree mr-2"></i> Klasifikasi & Penomoran Surat
+          <i class="fa-solid fa-folder-tree mr-2"></i> Kode Klasifikasi & Dokumen
         </h2>
         <div class="grid grid-cols-2 gap-2 text-sm">
           <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1">No. Query/Urut</label>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Jenis Dokumen</label>
+            <select id="inputJenisDokumen" class="w-full p-2 border border-gray-300 rounded text-xs bg-gray-50">
+              <option value="M" selected>b. Memorandum (M)</option>
+              <option value="BA">a. Berita Acara (BA)</option>
+              <option value="SE">c. Surat Edaran</option>
+              <option value="B">d. Surat Keluar (B)</option>
+              <option value="SK">e. Surat Keputusan</option>
+              <option value="SUI">f. Surat Undangan Internal</option>
+              <option value="SUE">g. Surat Undangan Eksternal</option>
+              <option value="SP">h. Surat Perintah</option>
+              <option value="P">i. Pengumuman</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">No. Urut Query</label>
             <input type="text" id="inputNoUrut" value="01" class="w-full p-2 border border-gray-300 rounded text-xs">
           </div>
           <div>
@@ -103,161 +157,195 @@
               <option value="3" selected>3</option>
             </select>
           </div>
-          <div>
+          <div class="col-span-2">
             <label class="block text-xs font-medium text-gray-700 mb-1">Divisi / Unit</label>
             <select id="inputDivisi" class="w-full p-2 border border-gray-300 rounded text-xs">
-              <option value="Dir.Keu" selected>Dir.Keu - Direktur Keuangan</option>
-              <option value="HHA">HHA - Humas, Hukum & Admin</option>
-              <option value="AKT">AKT - Akuntansi</option>
-              <option value="PBD">PBD - Perbendaharaan</option>
+              <option value="KPA">a. KPA</option><option value="ADP">b. ADP</option>
+              <option value="PBD">c. PBD</option><option value="AKT">d. AKT</option>
+              <option value="PPK">e. PPK</option><option value="PUS">f. PUS</option>
+              <option value="PMP">g. PMP</option><option value="PPL">h. PPL</option>
+              <option value="HHA" selected>i. HHA - Humas, Hukum & Admin</option>
+              <option value="SRT">j. SRT</option><option value="PBJ">k. PBJ</option>
+              <option value="STU">l. STU</option><option value="STR">m. STR</option>
+              <option value="IST">n. IST</option><option value="GKO">o. GKO</option>
+              <option value="STT">p. STT</option><option value="GBA">q. GBA</option>
+              <option value="BDL">r. BDL</option><option value="PTH">s. PTH</option>
+              <option value="KPM">t. KPM</option><option value="KWS">u. KWS</option>
+              <option value="INA">v. INA</option>
             </select>
           </div>
           <div class="col-span-2">
             <label class="block text-xs font-medium text-gray-700 mb-1">KKA</label>
             <select id="inputKKA" class="w-full p-2 border border-gray-300 rounded text-xs">
               <option value="PL">PL - PERLENGKAPAN DAN KERUMAHTANGGAAN</option>
-              <option value="PI">PI - PENGELOLAAN ISTANA-ISTANA KEPRESIDENAN</option>
             </select>
           </div>
-          <div>
+          <div class="col-span-2">
             <label class="block text-xs font-medium text-gray-700 mb-1">SUB KKA</label>
             <select id="inputSubKKA" class="w-full p-2 border border-gray-300 rounded text-xs">
+              <option value="00">00 - Analisis Kebutuhan Barang/Jasa</option>
               <option value="01">01 - Pengadaan Barang/Jasa</option>
+              <option value="02">02 - Pemeliharaan Gedung Kantor</option>
               <option value="03" selected>03 - Pelayanan Rumah Tangga Kantor</option>
+              <option value="04">04 - Pengelolaan Jaringan Listrik, Air dan Telepon</option>
             </select>
           </div>
-          <div>
+          <div class="col-span-2">
             <label class="block text-xs font-medium text-gray-700 mb-1">SUB-SUB KKA</label>
             <select id="inputSubSubKKA" class="w-full p-2 border border-gray-300 rounded text-xs">
+              <option value="00">00 - Surat Permintaan Penawaran Harga</option>
+              <option value="01">01 - Surat Perjanjian (Kontrak)</option>
+              <option value="02">02 - Surat Perintah Kerja (SPK)</option>
+              <option value="03">03 - Surat Pesanan</option>
+              <option value="04">04 - Surat Perintah Sederhana</option>
+              <option value="05">05 - Berita Acara</option>
+              <option value="00-ALT">00 - Pemeliharaan Gedung Kantor (Lift, AC, dll)</option>
+              <option value="01-ALT">01 - Perbaikan Fasilitas dan Utilitas Gedung</option>
               <option value="00" selected>00 - Jamuan Rapat/Lembur</option>
-              <option value="01">01 - Jamuan Kegiatan Direksi</option>
+              <option value="01-JMN">01 - Jamuan Kegiatan Direksi</option>
+              <option value="02-JMN">02 - Jamuan Kegiatan Lainnya/Jamuan Senam</option>
+              <option value="03-JMN">03 - Perbekalan Pegawai</option>
             </select>
           </div>
         </div>
       </div>
 
-      <!-- 4. Detail Content Naskah -->
+      <!-- 4. SLA Isi Memorandum & Optional Agenda -->
       <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
         <h2 class="text-xs font-bold text-blue-900 uppercase tracking-wider mb-3 border-b pb-2 flex items-center">
-          <i class="fa-solid fa-file-lines mr-2"></i> Detail & Isi Memorandum
+          <i class="fa-solid fa-file-lines mr-2"></i> Isi Surat (SLA Content)
         </h2>
         <div class="space-y-3 text-sm">
           <div>
             <label class="block text-xs font-medium text-gray-700 mb-1">Hal / Perihal <span class="text-red-500">*</span></label>
-            <input type="text" id="inputHal" value="Jamuan Rapat Sosialisasi Tata Naskah Dinas" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">
+            <input type="text" id="inputHal" value="Jamuan Rapat Sosialisasi Tata Naskah Dinas" class="w-full p-2 border border-gray-300 rounded text-xs">
           </div>
           <div>
             <label class="block text-xs font-medium text-gray-700 mb-1">Tanggal Buat</label>
             <input type="text" id="inputTanggal" value="20 Agustus 2026" class="w-full p-2 border border-gray-300 rounded text-xs">
           </div>
           <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1">Isi Ringkasan Surat / Narasi</label>
-            <textarea id="inputIsiSurat" rows="4" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">Sehubungan dengan adanya agenda pembahasan implementasi format baru Tata Naskah Dinas di lingkungan PPKGBK, bersama ini kami sampaikan permohonan penyediaan jamuan rapat yang akan dilaksanakan pada waktu terlampir.</textarea>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Ringkasan Surat (Paragraf Pembuka)</label>
+            <textarea id="inputIsiSurat" rows="3" class="w-full p-2 border border-gray-300 rounded text-xs">Sehubungan dengan pelaksanaan kegiatan sosialisasi Tata Naskah Dinas di lingkungan PPKGBK, bersama ini kami mohon bantuan penyediaan fasilitas jamuan rapat yang akan dilaksanakan sesuai ketentuan.</textarea>
           </div>
+          
+          <!-- Optional SLA Agenda Block -->
+          <div class="border p-2.5 rounded bg-gray-50 space-y-2">
+            <div class="flex items-center">
+              <input type="checkbox" id="toggleAgenda" class="mr-2 rounded text-blue-600">
+              <label for="toggleAgenda" class="text-xs font-bold text-gray-700">Tambahkan Detail Agenda (SLA Optional)</label>
+            </div>
+            <div id="agendaFields" class="hidden grid grid-cols-2 gap-2 pt-2">
+              <input type="text" id="inputHari" placeholder="Hari, Tanggal (e.g. Senin, 24 Aug)" class="p-1.5 border rounded text-xs">
+              <input type="text" id="inputWaktu" placeholder="Waktu (e.g. 09.00 WIB)" class="p-1.5 border rounded text-xs">
+              <input type="text" id="inputTempat" placeholder="Tempat" class="p-1.5 border rounded text-xs col-span-2">
+              <input type="text" id="inputAgenda" placeholder="Agenda Rapat" class="p-1.5 border rounded text-xs col-span-2">
+            </div>
+          </div>
+
           <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1">Tembusan (Pisahkan dengan koma)</label>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Tembusan (Pisahkan Koma)</label>
             <input type="text" id="inputTembusan" value="Kepala Divisi Humas, Hukum dan Administrasi" class="w-full p-2 border border-gray-300 rounded text-xs">
           </div>
         </div>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="flex space-x-2">
-        <button onclick="window.print()" class="flex-1 bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2.5 px-4 rounded shadow text-xs flex items-center justify-center space-x-2 transition">
-          <i class="fa-solid fa-print"></i>
-          <span>Cetak / Cetak PDF</span>
-        </button>
-      </div>
+      <button onclick="window.print()" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2.5 px-4 rounded shadow text-xs flex items-center justify-center space-x-2">
+        <i class="fa-solid fa-print"></i>
+        <span>Cetak PDF / Pratinjau Document</span>
+      </button>
 
     </div>
 
-    <!-- RIGHT PANEL: LIVE PREVIEW CANVAS -->
+    <!-- RIGHT PANEL: REAL-TIME PREVIEW CANVAS -->
     <div class="lg:col-span-7 flex flex-col items-center">
       
-      <!-- Toolbar Preview -->
       <div class="w-full bg-slate-800 text-white p-2.5 rounded-t-lg flex justify-between items-center text-xs">
-        <div class="flex items-center space-x-2">
-          <i class="fa-solid fa-eye text-green-400"></i>
-          <span class="font-semibold">Pratinjau Dokumen Real-time</span>
-        </div>
-        <span class="text-gray-400">Format: A4 (Standard)</span>
+        <span class="font-semibold"><i class="fa-solid fa-eye text-green-400 mr-2"></i>Pratinjau Dokumen Real-Time</span>
+        <span class="text-gray-400">Standar Format SLA</span>
       </div>
 
-      <!-- Paper Simulation -->
       <div class="w-full bg-gray-200 p-4 rounded-b-lg border border-gray-300 overflow-x-auto">
-        <div id="document-paper" class="a4-page p-10 text-gray-900 relative leading-relaxed">
+        <div id="document-paper" class="a4-page relative">
           
-          <!-- Header Surat -->
-          <div class="text-center border-b-2 border-blue-900 pb-3 mb-6">
-            <p class="font-bold text-sm tracking-wide text-[#00007e]">KEMENTERIAN SEKRETARIAT NEGARA RI</p>
-            <p class="font-bold text-base tracking-wide text-[#00007e]">PUSAT PENGELOLAAN KOMPLEK GELORA BUNG KARNO</p>
-            <p class="text-[10px] text-gray-600">Jl. Pintu Satu Senayan, Jakarta 10270, Telp. 021-29888555</p>
+          <!-- Header SLA: Times New Roman, 12pt, Bold, Hex #00007e -->
+          <div class="sla-header-text mb-6">
+            <p>KEMENTERIAN SEKRETARIAT NEGARA RI</p>
+            <p>PUSAT PENGELOLAAN KOMPLEK GELORA BUNG KARNO</p>
           </div>
 
-          <!-- Judul Dokumen -->
+          <!-- Document Title & Dynamic Code -->
           <div class="text-center mb-6">
-            <h3 class="font-bold text-base uppercase tracking-wider text-black">MEMORANDUM</h3>
-            <p id="previewNomorSurat" class="font-bold text-xs bg-yellow-200 inline-block px-2 py-0.5 rounded mt-1 border border-yellow-400">
-              M-01/D-3/Dir.Keu/PL.03.00/08/2026
+            <h3 class="font-bold text-sm tracking-widest text-black uppercase">MEMORANDUM</h3>
+            <p class="text-xs font-semibold mt-1">
+              Nomor <span id="previewNomorSurat" class="bg-yellow-200 px-1.5 py-0.5 rounded border border-yellow-400"></span>
             </p>
           </div>
 
-          <!-- Metadata Header -->
-          <div class="text-xs space-y-1.5 mb-6 border-b border-gray-200 pb-4">
+          <!-- Metadata List -->
+          <div class="sla-body-text text-xs space-y-1 mb-6 pb-2 border-b border-gray-300">
             <div class="grid grid-cols-12">
-              <span class="col-span-2 font-semibold">Yth</span>
-              <span class="col-span-10">: <span id="previewPenerima">Hadi Sulistia</span></span>
+              <span class="col-span-2">Yth</span>
+              <span class="col-span-10">: <span id="previewPenerima"></span></span>
             </div>
             <div class="grid grid-cols-12">
-              <span class="col-span-2 font-semibold">Dari</span>
-              <span class="col-span-10">: <span id="previewAtasNama">Direktur Keuangan</span></span>
+              <span class="col-span-2">Dari</span>
+              <span class="col-span-10">: <span id="previewAtasNama"></span></span>
             </div>
             <div class="grid grid-cols-12">
-              <span class="col-span-2 font-semibold">Hal</span>
-              <span class="col-span-10">: <span id="previewHal">Jamuan Rapat Sosialisasi Tata Naskah Dinas</span></span>
+              <span class="col-span-2">Hal</span>
+              <span class="col-span-10">: <span id="previewHal"></span></span>
             </div>
             <div class="grid grid-cols-12">
-              <span class="col-span-2 font-semibold">Tanggal</span>
-              <span class="col-span-10">: <span id="previewTanggal" class="bg-yellow-200 px-1 rounded">20 Agustus 2026</span></span>
+              <span class="col-span-2">Tanggal</span>
+              <span class="col-span-10">: <span id="previewTanggal" class="bg-yellow-200 px-1"></span></span>
             </div>
           </div>
 
-          <!-- Content Body -->
-          <div class="text-xs leading-relaxed space-y-4 mb-12 min-h-[220px]">
-            <p id="previewIsiSurat">
-              Sehubungan dengan adanya agenda pembahasan implementasi format baru Tata Naskah Dinas di lingkungan PPKGBK, bersama ini kami sampaikan permohonan penyediaan jamuan rapat yang akan dilaksanakan pada waktu terlampir.
-            </p>
+          <!-- SLA Body Text: Arial 12pt Justified -->
+          <div class="sla-body-text space-y-4 mb-10 min-h-[200px]">
+            <p id="previewIsiSurat"></p>
+
+            <!-- SLA Optional Agenda Display -->
+            <div id="previewAgendaBlock" class="hidden my-3 pl-4 space-y-1">
+              <p class="grid grid-cols-12">
+                <span class="col-span-3">pada hari, tanggal</span>
+                <span class="col-span-9">: <span id="previewHari"></span></span>
+              </p>
+              <p class="grid grid-cols-12">
+                <span class="col-span-3">waktu</span>
+                <span class="col-span-9">: <span id="previewWaktu"></span></span>
+              </p>
+              <p class="grid grid-cols-12">
+                <span class="col-span-3">tempat</span>
+                <span class="col-span-9">: <span id="previewTempat"></span></span>
+              </p>
+              <p class="grid grid-cols-12">
+                <span class="col-span-3">agenda</span>
+                <span class="col-span-9">: <span id="previewAgenda"></span></span>
+              </p>
+            </div>
+
+            <!-- SLA Default End Text -->
             <p>Atas perhatiannya, kami ucapkan terima kasih.</p>
           </div>
 
-          <!-- Signatory & Tembusan Area -->
-          <div class="grid grid-cols-2 text-xs pt-4">
+          <!-- Signatory Area -->
+          <div class="grid grid-cols-2 sla-body-text text-xs pt-6">
             <div>
-              <p class="font-semibold underline mb-1 bg-yellow-200 inline-block">Tembusan:</p>
-              <ol id="previewTembusan" class="list-decimal list-inside text-gray-700">
-                <li>Kepala Divisi Humas, Hukum dan Administrasi</li>
+              <p class="bg-yellow-200 inline-block font-semibold">Tembusan:</p>
+              <ol id="previewTembusan" class="list-decimal list-inside text-gray-800 mt-1 space-y-0.5">
               </ol>
             </div>
             <div class="text-right flex flex-col items-end">
-              <p class="h-16 text-xs text-gray-400 italic">[ Tanda Tangan TTE # ]</p>
-              <p id="previewNamaPengirim" class="font-bold text-gray-900 border-b border-gray-800 pb-0.5">Hendry Arisandi</p>
+              <p class="h-16 text-gray-400 italic text-[11px] flex items-center justify-end">
+                [ TTE QR-Code Position # ]
+              </p>
+              <p id="previewNamaPengirim" class="font-bold border-b border-black pb-0.5 inline-block"></p>
             </div>
           </div>
 
         </div>
-
-        <!-- System Alert Messages -->
-        <div class="mt-4 space-y-2 text-xs">
-          <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-2.5 rounded shadow-sm flex items-center">
-            <i class="fa-solid fa-triangle-exclamation mr-2"></i>
-            <span>Pastikan Anda telah memeriksa format penomoran otomatis sebelum mencetak draft naskah.</span>
-          </div>
-          <div class="bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-2.5 rounded shadow-sm flex items-center">
-            <i class="fa-solid fa-circle-info mr-2"></i>
-            <span>Tanda pagar (#) adalah penanda posisi QR-Code Sertifikat Sertifikasi Elektronik (TTE).</span>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -265,9 +353,22 @@
   </main>
 
   <script>
-    // Live Binding Script
+    const toggleAgenda = document.getElementById('toggleAgenda');
+    const agendaFields = document.getElementById('agendaFields');
+    const previewAgendaBlock = document.getElementById('previewAgendaBlock');
+
+    toggleAgenda.addEventListener('change', () => {
+      if(toggleAgenda.checked) {
+        agendaFields.classList.remove('hidden');
+        previewAgendaBlock.classList.remove('hidden');
+      } else {
+        agendaFields.classList.add('hidden');
+        previewAgendaBlock.classList.add('hidden');
+      }
+    });
+
     function updatePreview() {
-      // Direct field maps
+      // Input Text Binding
       document.getElementById('previewAtasNama').innerText = document.getElementById('inputAtasNama').value;
       document.getElementById('previewNamaPengirim').innerText = document.getElementById('inputNamaPengirim').value;
       document.getElementById('previewPenerima').innerText = document.getElementById('inputPenerima').value;
@@ -275,24 +376,35 @@
       document.getElementById('previewTanggal').innerText = document.getElementById('inputTanggal').value;
       document.getElementById('previewIsiSurat').innerText = document.getElementById('inputIsiSurat').value;
 
-      // Dynamic Memorandum Code Generator
-      // Format: M-[NO_URUT]/[KODE_DIREKSI]-[KODE_DIREKTUR]/[DIVISI]/[KKA].[SUB_KKA].[SUB_SUB_KKA]/[BULAN]/[TAHUN]
+      // Optional Agenda Binding
+      document.getElementById('previewHari').innerText = document.getElementById('inputHari').value || '-';
+      document.getElementById('previewWaktu').innerText = document.getElementById('inputWaktu').value || '-';
+      document.getElementById('previewTempat').innerText = document.getElementById('inputTempat').value || '-';
+      document.getElementById('previewAgenda').innerText = document.getElementById('inputAgenda').value || '-';
+
+      // Dynamic Code Generation according to SLA Format Specification:
+      // [JENIS DOKUMEN]-[SET NUMBER QUERY]/[KODE DIREKSI]-[KODE DIREKTUR]/[DIVISI/UNIT]/[KKA].[SUB KKA].[SUB-SUB KKA]/[BULAN]/[TAHUN]
+      const jenisDoc = document.getElementById('inputJenisDokumen').value;
       const noUrut = document.getElementById('inputNoUrut').value || '01';
       const kodeDireksi = document.getElementById('inputKodeDireksi').value;
       const kodeDirektur = document.getElementById('inputKodeDirektur').value;
       const divisi = document.getElementById('inputDivisi').value;
       const kka = document.getElementById('inputKKA').value;
-      const subKka = document.getElementById('inputSubKKA').value;
-      const subSubKka = document.getElementById('inputSubSubKKA').value;
+      
+      // Extract numeric prefix for Sub KKA & Sub Sub KKA
+      const subKkaFull = document.getElementById('inputSubKKA').value;
+      const subSubKkaFull = document.getElementById('inputSubSubKKA').value;
+      const subKka = subKkaFull.split('-')[0];
+      const subSubKka = subSubKkaFull.split('-')[0];
 
       const dateObj = new Date();
       const month = String(dateObj.getMonth() + 1).padStart(2, '0');
       const year = dateObj.getFullYear();
 
-      const nomorSuratFull = `M-${noUrut}/${kodeDireksi}-${kodeDirektur}/${divisi}/${kka}.${subKka}.${subSubKka}/${month}/${year}`;
+      const nomorSuratFull = `${jenisDoc}-${noUrut}/${kodeDireksi}-${kodeDirektur}/${divisi}/${kka}.${subKka}.${subSubKka}/${month}/${year}`;
       document.getElementById('previewNomorSurat').innerText = nomorSuratFull;
 
-      // Update Tembusan
+      // Dynamic Tembusan Update
       const tembusanInput = document.getElementById('inputTembusan').value;
       const tembusanList = document.getElementById('previewTembusan');
       tembusanList.innerHTML = '';
@@ -311,14 +423,13 @@
       }
     }
 
-    // Attach listeners
+    // Event Listener setup
     const inputs = document.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
       input.addEventListener('input', updatePreview);
       input.addEventListener('change', updatePreview);
     });
 
-    // Initialize
     updatePreview();
   </script>
 </body>
