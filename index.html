@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Tata Naskah Dinas - Memorandum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @media print {
+      body * { visibility: hidden; }
+      #document-paper, #document-paper * { visibility: visible; }
+      #document-paper { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 20px; box-shadow: none; }
+    }
+    .a4-page {
+      width: 210mm;
+      min-height: 297mm;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      margin: 0 auto;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased">
+
+  <!-- Header / Top Navbar -->
+  <header class="bg-blue-900 text-white px-6 py-3 flex justify-between items-center shadow-md">
+    <div class="flex items-center space-x-3">
+      <i class="fa-solid fa-file-contract text-2xl text-yellow-400"></i>
+      <div>
+        <h1 class="font-bold text-lg leading-tight">Sistem Otomasi Tata Naskah Dinas</h1>
+        <p class="text-xs text-blue-200">Pusat Pengelolaan Komplek Gelora Bung Karno</p>
+      </div>
+    </div>
+    <div class="flex items-center space-x-3 text-sm">
+      <span class="bg-blue-800 px-3 py-1 rounded-full text-xs font-semibold"><i class="fa-solid fa-circle text-green-400 mr-1 text-[10px]"></i> Modul Memorandum</span>
+    </div>
+  </header>
+
+  <main class="container mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- LEFT PANEL: FORM CONTROLS -->
+    <div class="lg:col-span-5 space-y-4">
+      
+      <!-- 1. Pengirim & Penandatangan -->
+      <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xs font-bold text-blue-900 uppercase tracking-wider mb-3 border-b pb-2 flex items-center">
+          <i class="fa-solid fa-user-pen mr-2"></i> Pengirim & Penandatangan
+        </h2>
+        <div class="space-y-3 text-sm">
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Atas Nama Surat (Dari) <span class="text-red-500">*</span></label>
+            <select id="inputAtasNama" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 text-xs">
+              <option value="Direktur Utama">Direktur Utama</option>
+              <option value="Direktur Pembangunan dan Pengembangan Usaha">Direktur Pembangunan dan Pengembangan Usaha</option>
+              <option value="Direktur Keuangan" selected>Direktur Keuangan</option>
+              <option value="Direktur Umum">Direktur Umum</option>
+              <option value="Kepala Satuan Pemeriksaan Intern">Kepala Satuan Pemeriksaan Intern</option>
+              <option value="Kepala Divisi Humas, Hukum dan Administrasi">Kepala Divisi Humas, Hukum dan Administrasi</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Nama Pengirim / Penandatangan <span class="text-red-500">*</span></label>
+            <input type="text" id="inputNamaPengirim" value="Hendry Arisandi" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Penerima Surat -->
+      <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xs font-bold text-blue-900 uppercase tracking-wider mb-3 border-b pb-2 flex items-center">
+          <i class="fa-solid fa-paper-plane mr-2"></i> Penerima Surat (Yth)
+        </h2>
+        <div class="space-y-3 text-sm">
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Nama / Jabatan Penerima <span class="text-red-500">*</span></label>
+            <input type="text" id="inputPenerima" value="Hadi Sulistia (Direktur Umum PPK Gelora Bung Karno)" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Informasi Kearsipan & Kode Klasifikasi -->
+      <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xs font-bold text-blue-900 uppercase tracking-wider mb-3 border-b pb-2 flex items-center">
+          <i class="fa-solid fa-folder-tree mr-2"></i> Klasifikasi & Penomoran Surat
+        </h2>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">No. Query/Urut</label>
+            <input type="text" id="inputNoUrut" value="01" class="w-full p-2 border border-gray-300 rounded text-xs">
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Kode Direksi</label>
+            <select id="inputKodeDireksi" class="w-full p-2 border border-gray-300 rounded text-xs">
+              <option value="D">D - Direksi</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Kode Direktur</label>
+            <select id="inputKodeDirektur" class="w-full p-2 border border-gray-300 rounded text-xs">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Divisi / Unit</label>
+            <select id="inputDivisi" class="w-full p-2 border border-gray-300 rounded text-xs">
+              <option value="Dir.Keu" selected>Dir.Keu - Direktur Keuangan</option>
+              <option value="HHA">HHA - Humas, Hukum & Admin</option>
+              <option value="AKT">AKT - Akuntansi</option>
+              <option value="PBD">PBD - Perbendaharaan</option>
+            </select>
+          </div>
+          <div class="col-span-2">
+            <label class="block text-xs font-medium text-gray-700 mb-1">KKA</label>
+            <select id="inputKKA" class="w-full p-2 border border-gray-300 rounded text-xs">
+              <option value="PL">PL - PERLENGKAPAN DAN KERUMAHTANGGAAN</option>
+              <option value="PI">PI - PENGELOLAAN ISTANA-ISTANA KEPRESIDENAN</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">SUB KKA</label>
+            <select id="inputSubKKA" class="w-full p-2 border border-gray-300 rounded text-xs">
+              <option value="01">01 - Pengadaan Barang/Jasa</option>
+              <option value="03" selected>03 - Pelayanan Rumah Tangga Kantor</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">SUB-SUB KKA</label>
+            <select id="inputSubSubKKA" class="w-full p-2 border border-gray-300 rounded text-xs">
+              <option value="00" selected>00 - Jamuan Rapat/Lembur</option>
+              <option value="01">01 - Jamuan Kegiatan Direksi</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Detail Content Naskah -->
+      <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+        <h2 class="text-xs font-bold text-blue-900 uppercase tracking-wider mb-3 border-b pb-2 flex items-center">
+          <i class="fa-solid fa-file-lines mr-2"></i> Detail & Isi Memorandum
+        </h2>
+        <div class="space-y-3 text-sm">
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Hal / Perihal <span class="text-red-500">*</span></label>
+            <input type="text" id="inputHal" value="Jamuan Rapat Sosialisasi Tata Naskah Dinas" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Tanggal Buat</label>
+            <input type="text" id="inputTanggal" value="20 Agustus 2026" class="w-full p-2 border border-gray-300 rounded text-xs">
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Isi Ringkasan Surat / Narasi</label>
+            <textarea id="inputIsiSurat" rows="4" class="w-full p-2 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500">Sehubungan dengan adanya agenda pembahasan implementasi format baru Tata Naskah Dinas di lingkungan PPKGBK, bersama ini kami sampaikan permohonan penyediaan jamuan rapat yang akan dilaksanakan pada waktu terlampir.</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">Tembusan (Pisahkan dengan koma)</label>
+            <input type="text" id="inputTembusan" value="Kepala Divisi Humas, Hukum dan Administrasi" class="w-full p-2 border border-gray-300 rounded text-xs">
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex space-x-2">
+        <button onclick="window.print()" class="flex-1 bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2.5 px-4 rounded shadow text-xs flex items-center justify-center space-x-2 transition">
+          <i class="fa-solid fa-print"></i>
+          <span>Cetak / Cetak PDF</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL: LIVE PREVIEW CANVAS -->
+    <div class="lg:col-span-7 flex flex-col items-center">
+      
+      <!-- Toolbar Preview -->
+      <div class="w-full bg-slate-800 text-white p-2.5 rounded-t-lg flex justify-between items-center text-xs">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-eye text-green-400"></i>
+          <span class="font-semibold">Pratinjau Dokumen Real-time</span>
+        </div>
+        <span class="text-gray-400">Format: A4 (Standard)</span>
+      </div>
+
+      <!-- Paper Simulation -->
+      <div class="w-full bg-gray-200 p-4 rounded-b-lg border border-gray-300 overflow-x-auto">
+        <div id="document-paper" class="a4-page p-10 text-gray-900 relative leading-relaxed">
+          
+          <!-- Header Surat -->
+          <div class="text-center border-b-2 border-blue-900 pb-3 mb-6">
+            <p class="font-bold text-sm tracking-wide text-[#00007e]">KEMENTERIAN SEKRETARIAT NEGARA RI</p>
+            <p class="font-bold text-base tracking-wide text-[#00007e]">PUSAT PENGELOLAAN KOMPLEK GELORA BUNG KARNO</p>
+            <p class="text-[10px] text-gray-600">Jl. Pintu Satu Senayan, Jakarta 10270, Telp. 021-29888555</p>
+          </div>
+
+          <!-- Judul Dokumen -->
+          <div class="text-center mb-6">
+            <h3 class="font-bold text-base uppercase tracking-wider text-black">MEMORANDUM</h3>
+            <p id="previewNomorSurat" class="font-bold text-xs bg-yellow-200 inline-block px-2 py-0.5 rounded mt-1 border border-yellow-400">
+              M-01/D-3/Dir.Keu/PL.03.00/08/2026
+            </p>
+          </div>
+
+          <!-- Metadata Header -->
+          <div class="text-xs space-y-1.5 mb-6 border-b border-gray-200 pb-4">
+            <div class="grid grid-cols-12">
+              <span class="col-span-2 font-semibold">Yth</span>
+              <span class="col-span-10">: <span id="previewPenerima">Hadi Sulistia</span></span>
+            </div>
+            <div class="grid grid-cols-12">
+              <span class="col-span-2 font-semibold">Dari</span>
+              <span class="col-span-10">: <span id="previewAtasNama">Direktur Keuangan</span></span>
+            </div>
+            <div class="grid grid-cols-12">
+              <span class="col-span-2 font-semibold">Hal</span>
+              <span class="col-span-10">: <span id="previewHal">Jamuan Rapat Sosialisasi Tata Naskah Dinas</span></span>
+            </div>
+            <div class="grid grid-cols-12">
+              <span class="col-span-2 font-semibold">Tanggal</span>
+              <span class="col-span-10">: <span id="previewTanggal" class="bg-yellow-200 px-1 rounded">20 Agustus 2026</span></span>
+            </div>
+          </div>
+
+          <!-- Content Body -->
+          <div class="text-xs leading-relaxed space-y-4 mb-12 min-h-[220px]">
+            <p id="previewIsiSurat">
+              Sehubungan dengan adanya agenda pembahasan implementasi format baru Tata Naskah Dinas di lingkungan PPKGBK, bersama ini kami sampaikan permohonan penyediaan jamuan rapat yang akan dilaksanakan pada waktu terlampir.
+            </p>
+            <p>Atas perhatiannya, kami ucapkan terima kasih.</p>
+          </div>
+
+          <!-- Signatory & Tembusan Area -->
+          <div class="grid grid-cols-2 text-xs pt-4">
+            <div>
+              <p class="font-semibold underline mb-1 bg-yellow-200 inline-block">Tembusan:</p>
+              <ol id="previewTembusan" class="list-decimal list-inside text-gray-700">
+                <li>Kepala Divisi Humas, Hukum dan Administrasi</li>
+              </ol>
+            </div>
+            <div class="text-right flex flex-col items-end">
+              <p class="h-16 text-xs text-gray-400 italic">[ Tanda Tangan TTE # ]</p>
+              <p id="previewNamaPengirim" class="font-bold text-gray-900 border-b border-gray-800 pb-0.5">Hendry Arisandi</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- System Alert Messages -->
+        <div class="mt-4 space-y-2 text-xs">
+          <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-2.5 rounded shadow-sm flex items-center">
+            <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+            <span>Pastikan Anda telah memeriksa format penomoran otomatis sebelum mencetak draft naskah.</span>
+          </div>
+          <div class="bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-2.5 rounded shadow-sm flex items-center">
+            <i class="fa-solid fa-circle-info mr-2"></i>
+            <span>Tanda pagar (#) adalah penanda posisi QR-Code Sertifikat Sertifikasi Elektronik (TTE).</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    // Live Binding Script
+    function updatePreview() {
+      // Direct field maps
+      document.getElementById('previewAtasNama').innerText = document.getElementById('inputAtasNama').value;
+      document.getElementById('previewNamaPengirim').innerText = document.getElementById('inputNamaPengirim').value;
+      document.getElementById('previewPenerima').innerText = document.getElementById('inputPenerima').value;
+      document.getElementById('previewHal').innerText = document.getElementById('inputHal').value;
+      document.getElementById('previewTanggal').innerText = document.getElementById('inputTanggal').value;
+      document.getElementById('previewIsiSurat').innerText = document.getElementById('inputIsiSurat').value;
+
+      // Dynamic Memorandum Code Generator
+      // Format: M-[NO_URUT]/[KODE_DIREKSI]-[KODE_DIREKTUR]/[DIVISI]/[KKA].[SUB_KKA].[SUB_SUB_KKA]/[BULAN]/[TAHUN]
+      const noUrut = document.getElementById('inputNoUrut').value || '01';
+      const kodeDireksi = document.getElementById('inputKodeDireksi').value;
+      const kodeDirektur = document.getElementById('inputKodeDirektur').value;
+      const divisi = document.getElementById('inputDivisi').value;
+      const kka = document.getElementById('inputKKA').value;
+      const subKka = document.getElementById('inputSubKKA').value;
+      const subSubKka = document.getElementById('inputSubSubKKA').value;
+
+      const dateObj = new Date();
+      const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+      const year = dateObj.getFullYear();
+
+      const nomorSuratFull = `M-${noUrut}/${kodeDireksi}-${kodeDirektur}/${divisi}/${kka}.${subKka}.${subSubKka}/${month}/${year}`;
+      document.getElementById('previewNomorSurat').innerText = nomorSuratFull;
+
+      // Update Tembusan
+      const tembusanInput = document.getElementById('inputTembusan').value;
+      const tembusanList = document.getElementById('previewTembusan');
+      tembusanList.innerHTML = '';
+      if(tembusanInput.trim() !== "") {
+        tembusanInput.split(',').forEach(item => {
+          if(item.trim() !== "") {
+            const li = document.createElement('li');
+            li.innerText = item.trim();
+            tembusanList.appendChild(li);
+          }
+        });
+      } else {
+        const li = document.createElement('li');
+        li.innerText = '-';
+        tembusanList.appendChild(li);
+      }
+    }
+
+    // Attach listeners
+    const inputs = document.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('input', updatePreview);
+      input.addEventListener('change', updatePreview);
+    });
+
+    // Initialize
+    updatePreview();
+  </script>
+</body>
+</html>
